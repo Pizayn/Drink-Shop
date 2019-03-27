@@ -1,0 +1,424 @@
+﻿@model DrinkShop.WebUI.Models.ProductListViewModel
+
+@{
+
+//Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+    <!-- //navigation -->
+    <!-- main-slider -->
+    <ul id="demo1">
+        <li>
+            <img src="/Upload/2018_09_28_GoldLineBar_003.0.jpg" width="1519px;"height="595px;" alt="" />
+            <!--Slider Description example-->
+            <div class="slide-desc">
+                <h3>Whole Barware Products Are Now On Line With Us</h3>
+            </div>
+        </li>
+        <li>
+            <img src="images/22.jpg" alt="" />
+            <div class="slide-desc">
+                <h3>Whole Spirits Products Are Now On Line With Us</h3>
+            </div>
+        </li>
+
+        <li>
+            <img src="images/44.jpg" alt="" />
+            <div class="slide-desc">
+                <h3>Whole Spices Products Are Now On Line With Us</h3>
+            </div>
+        </li>
+    </ul>
+    <!-- //main-slider -->
+    <!-- //top-header and slider -->
+    <!-- top-brands -->
+<div class="top-brands">
+        <div class="container">
+            <h2>Top Selling Categories</h2>
+            <div class="grid_3 grid_5">
+                <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">Wines </a></li>
+                        <li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">Beers</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
+                            <div class="agile-tp">
+                                <h5>@Model.CurrentAction</h5>
+                                <p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
+                            </div>
+
+                            <div class="agile_top_brands_grids">
+                                @foreach (var product in Model.GetWines.Take(6))
+                                {
+                                  
+                                 
+                                <div class="col-md-4 top_brand_left"  style="margin-bottom: 40px;">
+                                    <div class="hover14 column">
+                                        <div class="agile_top_brand_left_grid">
+                                           
+                                            <div class="agile_top_brand_left_grid1" >
+                                                <figure>
+                                                    <div class="snipcart-item block">
+                                                        <div class="snipcart-thumb">
+                                                            <a asp-controller="Product"asp-action="Details"asp-route-productId="@product.Id"><img title=" " alt=" " src="/Upload/@product.Image" width="150px;" height="150px;" /></a>
+                                                            <p>@product.ProductName</p>
+                                                            <div class="stars">
+                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                            </div>
+                                                            <h4>€@product.UnitPrice <span></span></h4>
+                                                        </div>
+                                                        <div class="snipcart-details top_brand_home_details">
+                                                            <form asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@product.Id">
+                                                                <fieldset>
+
+                                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                                </fieldset>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    }
+                             
+                                    
+                         
+
+                                <div class="clearfix"> </div>
+                            </div>
+                           
+
+                            
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
+                            <div class="agile-tp">
+                               
+                                <p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
+                            </div>
+                            <div class="agile_top_brands_grids">
+                                @foreach (var product in Model.GetBeers)
+                                {
+                                   
+                                        <div class="col-md-4 top_brand_left"  style="margin-bottom: 40px;">
+                                            <div class="hover14 column">
+                                                <div class="agile_top_brand_left_grid" >
+                                                 
+                                                    <div class="agile_top_brand_left_grid1">
+                                                        <figure>
+                                                            <div class="snipcart-item block">
+                                                                <div class="snipcart-thumb">
+                                                                    <a asp-controller="Product"asp-action="Details"asp-route-productId="@product.Id"><img title=" " alt=" " src="/Upload/@product.Image"  width="150px;" height="150px;" /></a>
+                                                                    <p>@product.ProductName</p>
+                                                                    <div class="stars">
+                                                                        <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                                        <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                                        <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                                        <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                                        <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <h4>€@product.UnitPrice<span></span></h4>
+                                                                </div>
+                                                                <div class="snipcart-details top_brand_home_details">
+                                                                    <form asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@product.Id">
+                                                                        <fieldset>
+
+                                                                            <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                                        </fieldset>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+
+
+                              
+                                <div class="clearfix"> </div>
+
+
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <!-- //top-brands -->
+    <!-- Carousel
+       ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <a asp-controller="Product" asp-action="Index"asp-route-category="1"> <img class="first-slide" src="/Upload/wines.png"width="1521"height="427" alt="First slide"></a>
+
+            </div>
+            <div class="item">
+                <a asp-controller="Product" asp-action="Index" asp-route-category="2"> <img class="second-slide " src="/Upload/beers.jpg"width="1521"height="427" alt="Second slide"></a>
+
+            </div>
+            <div class="item">
+                <a asp-controller="Product" asp-action="Index" asp-route-category="3"><img class="third-slide " src="/Upload/spirits.jpg"width="1521"height="427" alt="Third slide"></a>
+
+            </div>
+        </div>
+
+    </div><!-- /.carousel -->
+    <!--banner-bottom-->
+    <div class="ban-bottom-w3l">
+        <div class="container">
+            <div class="col-md-6 ban-bottom3">
+                <div class="ban-top"> 
+                    <img src="/Upload/010.jpg" class="img-responsive" alt="" />
+
+                </div>
+                <div class="ban-img">
+                    <div class=" ban-bottom1">
+                        <div class="ban-top">
+                            <img src="/Upload/images (1).jpg" style="height: 259px; width: 259px;" class="img-responsive" alt="" />
+
+                        </div>
+                    </div>
+                    <div class="ban-bottom2">
+                        <div class="ban-top">
+                            <img src="/Upload/drink_dance_shop_bar_kings_cross_london_photos_1.jpg" class="img-responsive" style="width: 259px; height: 259px;" alt="" />
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-6 ban-bottom">
+                <div class="ban-top">
+                    <img src="/Upload/Pamflet_DrinkShopDo.jpg" class="img-responsive" style="width: 594px; height: 644px;" alt="" />
+
+
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!--banner-bottom-->
+    <!--brands-->
+    <div class="brands">
+        <div class="container">
+            <h3>Categories</h3>
+            <div class="brands-agile">
+                @foreach (var subCategory in  Model.SubCategories)
+                {
+                    <div class="col-md-2 w3layouts-brand" style="margin-bottom: 10px;">
+                        <div class="brands-w3l">
+                            <p><a asp-controller="Product"asp-action="Index"asp-route-subCategory="@subCategory.Id">@subCategory.Name</a></p>
+                        </div>
+                    </div>
+                }
+              
+
+
+
+                <div class="clearfix"></div>
+            </div>
+           
+            
+        </div>
+    </div>
+    <!--//brands-->
+    <!-- new -->
+    <div class="newproducts-w3agile">
+        <div class="container">
+            <h3>New offers</h3>
+            <div class="agile_top_brands_grids">
+                @foreach (var product in Model.Products.Take(4))
+                {
+                    <div class="col-md-3 top_brand_left-1">
+                        <div class="hover14 column">
+                            <div class="agile_top_brand_left_grid">
+                                <div class="agile_top_brand_left_grid_pos">
+                                    <img src="images/offer.png" alt=" " class="img-responsive">
+                                </div>
+                                <div class="agile_top_brand_left_grid1">
+                                    <figure>
+                                        <div class="snipcart-item block">
+                                            <div class="snipcart-thumb">
+                                                <a href="products.html"><img title=" " alt=" " src="/Upload/@product.Image" width="150px;"height="150px;"></a>
+                                                <p>@product.ProductName</p>
+                                                <div class="stars">
+                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                </div>
+                                                <h4>€@product.UnitPrice</h4>
+                                            </div>
+                                            <div class="snipcart-details top_brand_home_details">
+                                                <form asp-controller="Cart" asp-action="AddToCart" asp-route-productId="" method="post">
+                                                    <fieldset>
+
+                                                        <input type="submit" name="submit" value="Add to cart" class="button">
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!-- //new -->
+    <!-- //footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="w3_footer_grids">
+                <div class="col-md-3 w3_footer_grid">
+                    <h3>Contact</h3>
+
+                    <ul class="address">
+                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:pizayn79@gmail.com">info@example.com</a></li>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 w3_footer_grid">
+                    <h3>Information</h3>
+                    <ul class="info">
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">About Us</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Contact Us</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="short-codes.html">Short Codes</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="faq.html">FAQ's</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">Special Products</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 w3_footer_grid">
+                    <h3>Category</h3>
+                    <ul class="info">
+                        @foreach (var category in Model.Categories)
+                        {
+                            <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a asp-controller="Product" asp-action="Index"asp-route-category="@category.Id">@category.CategoryName</a></li>
+
+                        }
+
+                    </ul>
+                </div>
+                <div class="col-md-3 w3_footer_grid">
+                    <h3>Profile</h3>
+                    <ul class="info">
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a asp-controller="Product" asp-action="Index">Store</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a asp-controller="Cart" asp-action="List">My Cart</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a asp-controller="Account"asp-action="Login">Login</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a asp-controller="Account"asp-action="Register">Create Account</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+
+            <div class="container">
+             
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-botm">
+        <div class="container">
+            <div class="w3layouts-foot">
+                <ul>
+                    <li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="payment-w3ls">
+                <img src="images/card.png" alt=" " class="img-responsive">
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- top-header and slider -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <script src="js/minicart.min.js"></script>
+    <script>
+        // Mini Cart
+        paypal.minicart.render({
+            action: '#'
+        });
+
+        if (~window.location.search.indexOf('reset=true')) {
+            paypal.minicart.reset();
+        }
+    </script>
+    <!-- main slider-banner -->
+    <script src="js/skdslider.min.js"></script>
+    <link href="css/skdslider.css" rel="stylesheet">
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#demo1').skdslider({ 'delay': 5000, 'animationSpeed': 2000, 'showNextPrev': true, 'showPlayButton': true, 'autoSlide': true, 'animationType': 'fading' });
+
+            jQuery('#responsive').change(function () {
+                $('#responsive_wrapper').width(jQuery(this).val());
+            });
+
+        });
+    </script>
+    <!-- //main slider-banner -->
+
+
+

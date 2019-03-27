@@ -1,0 +1,50 @@
+﻿@model DrinkShop.WebUI.Models.CartSummaryViewModel
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
+<li class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+
+
+    </button>
+    <ul class="dropdown-menu multi-column columns-3">
+        <div class="row">
+            <div class="multi-gd-img">
+                <ul class="multi-column-dropdown">
+
+                    @foreach (var item in Model.Cart.CartLines)
+                    {
+                        <li><a>@item.Product.ProductName <span class="badge" id="countCart">@item.Quantity</span></a></li>
+                        <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
+                           title="Remove item" asp-controller="Cart" asp-action="RemoveCart" asp-route-productId="@item.Product.Id">
+                            <i class="fas fa-times" style="font-size: 8px;"></i>
+                        </a>
+
+                    }
+                    <li>
+                        <a>
+                            Total
+                            € @Model.Cart.Total
+
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Cart" asp-action="List">
+                            Go To List
+                            <i class="fa fa-shopping-cart" style="font-size: 18px; color: green; "></i>
+                        </a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+        </div>
+    </ul>
+</li>
+
+
+

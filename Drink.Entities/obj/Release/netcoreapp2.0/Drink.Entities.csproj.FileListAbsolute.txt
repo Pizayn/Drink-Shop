@@ -1,0 +1,12 @@
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\bin\Release\netcoreapp2.0\Drink.Entities.deps.json
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\bin\Release\netcoreapp2.0\Drink.Entities.dll
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\bin\Release\netcoreapp2.0\Drink.Entities.pdb
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\bin\Release\netcoreapp2.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\bin\Release\netcoreapp2.0\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\obj\Release\netcoreapp2.0\Drink.Entities.csprojAssemblyReference.cache
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\obj\Release\netcoreapp2.0\Drink.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\obj\Release\netcoreapp2.0\Drink.Entities.AssemblyInfoInputs.cache
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\obj\Release\netcoreapp2.0\Drink.Entities.AssemblyInfo.cs
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\obj\Release\netcoreapp2.0\Drink.Entities.csproj.CopyComplete
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\obj\Release\netcoreapp2.0\Drink.Entities.dll
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.Entities\obj\Release\netcoreapp2.0\Drink.Entities.pdb

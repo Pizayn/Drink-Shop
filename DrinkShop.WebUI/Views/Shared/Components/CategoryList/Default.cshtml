@@ -1,0 +1,102 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Extensions
+@model DrinkShop.WebUI.Models.CategoryListViewModel
+
+
+
+
+
+
+
+
+
+
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+    
+<div class="panel-group" id="accordion">
+   
+    @foreach (var category in Model.Categories)
+    {
+
+        var cssAll = "list-group-item";
+        var backgroundColorAll = "";
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#@category.Id">
+                        <span class="fas fa-wine-glass-alt">
+                        </span> @category.CategoryName
+                    </a>
+                </h4>
+            </div>
+            <div id="@category.Id" class="panel-collapse collapse in">
+                <ul class="list-group">
+                    @if (category.Id == Model.CurrentCategory && Model.CurrentSubCategory == 0)
+                    {
+                        cssAll += " active";
+                        backgroundColorAll = "background-color: black";
+
+                    }
+                    @if (Model.CurrentAction=="/Product" || Model.CurrentAction=="/product")
+                    {
+                        <li class="@cssAll" style="@backgroundColorAll">
+                            <a asp-controller="Product" asp-action="Index" asp-route-category="@category.Id">All @category.CategoryName</a>
+
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="@cssAll" style="@backgroundColorAll">
+                            <a asp-controller="Admin" asp-action="Index" asp-route-category="@category.Id">All @category.CategoryName</a>
+
+                        </li>
+                    }
+                  
+                    @foreach (var subCategory in Model.SubCategories)
+                    {
+
+                        if (category.Id == subCategory.CategoryId)
+                        {
+                            var css = "list-group-item";
+                            var backgroundColor = "";
+
+                            if (subCategory.Id == Model.CurrentSubCategory)
+                            {
+                                css += " active";
+                                backgroundColor = "background-color: black";
+
+                            }
+                            if (Model.CurrentAction == "/Product" || Model.CurrentAction=="/product")
+                            {
+                                <li class="@css" style="@backgroundColor">
+                                    <a asp-controller="Product" asp-action="Index" asp-route-category="@subCategory.CategoryId" asp-route-subCategory="@subCategory.Id">@subCategory.Name</a>
+
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="@css" style="@backgroundColor">
+                                    <a asp-controller="Admin" asp-action="Index" asp-route-category="@subCategory.CategoryId" asp-route-subCategory="@subCategory.Id">@subCategory.Name</a>
+
+                                </li>
+                            }
+
+                        }
+
+                    }
+
+                </ul>
+            </div>
+        </div>
+    }
+
+
+
+</div>
+    

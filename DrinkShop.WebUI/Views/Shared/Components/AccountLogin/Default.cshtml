@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@if (User.Identity.IsAuthenticated)
+{
+    <li class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Account
+            <h6>@User.Identity.Name</h6>
+          
+        </button>
+        <ul class="dropdown-menu multi-column columns-3">
+            <div class="row">
+                <div class="multi-gd-img">
+                    <ul class="multi-column-dropdown">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li><a asp-controller="Admin" asp-action="Index">Product Settings</a></li>
+                        }
+                       
+                        <li><a asp-controller="Cart" asp-action="Details">Order Details</a></li>
+                        <li><a asp-controller="Account" asp-action="LogOff">Log Off</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </ul>
+    </li>
+    @*<a class="btn btn-warning"asp-controller="Account" asp-action="LogOff" style="margin-right: 10px;">Log Off</a>
+    <a class="btn-success" asp-controller="Cart" asp-action="Details"  style="margin-right: 10px;">Details</a>*@
+
+}
+

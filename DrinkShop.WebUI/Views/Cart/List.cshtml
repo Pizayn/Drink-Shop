@@ -1,0 +1,132 @@
+﻿@model DrinkShop.WebUI.Models.CartListViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<section class="p-1" style="width: 857px; height: 657px; margin-left: 300px;" >
+    <div class="container">
+        <div class="card">
+
+            <div class="card-body">
+
+                <!-- Shopping Cart table -->
+                <div class="table-responsive">
+
+                    <table class="table product-table">
+
+                        <!-- Table head -->
+                        <thead class="mdb-color lighten-5" style="background-color: lightskyblue ">
+                            <tr>
+                                <th></th>
+                                <th class="font-weight-bold">
+                                    <strong>Product</strong>
+                                </th>
+
+                                <th></th>
+                                <th class="font-weight-bold">
+                                    <strong>Price</strong>
+                                </th>
+                                <th class="font-weight-bold">
+                                    <strong>Quantity</strong>
+                                </th>
+                                <th class="font-weight-bold">
+                                    <strong>Total</strong>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <!-- /.Table head -->
+                        <!-- Table body -->
+                        <tbody>
+
+                            <!-- First row -->
+                            @foreach (var item in Model.Cart.CartLines)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        <img src="/Upload/@item.Product.Image" width="30px;" height="20px;" alt="" class="img-fluid z-depth-0">
+                                    </th>
+                                    <td>
+                                        <h5 class="mt-3">
+                                            <strong>@item.Product.ProductName</strong>
+                                        </h5>
+                                      
+                                    </td>
+
+                                    <td></td>
+                                    <td>@item.Product.UnitPrice</td>
+                                    <td>
+                                       @item.Quantity
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        <strong>@(item.Product.UnitPrice * item.Quantity)</strong>
+                                    </td>
+                                    <td>
+                                        <a type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
+                                           title="Remove item" asp-controller="Cart" asp-action="RemoveCart" asp-route-productId="@item.Product.Id">
+                                            X
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            }
+                            <tr>
+                                <td colspan="3"></td>
+                                <td>
+                                    <h4 class="mt-2">
+                                        <strong>Total</strong>
+                                    </h4>
+                                </td>
+                                <td class="text-right">
+                                    <h4 class="mt-2">
+                                        <strong>@Model.Cart.Total</strong>
+                                        <i class="fas fa-euro-sign" style="font-size: 18px;"></i>
+
+                                    </h4>
+                                </td>
+                                <td colspan="3" class="text-right">
+                                    @if (Model.Cart.Total > 0)
+                                    {
+                                        <a type="button" class="btn btn-primary btn-rounded" asp-controller="Cart" asp-action="Complete">
+                                            Complete purchase
+                                            <i class="fas fa-angle-right right"></i>
+                                        </a>
+                                    }
+                                   
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
+                        <!-- /.Table body -->
+
+                    </table>
+
+                </div>
+                <!-- /.Shopping Cart table -->
+
+            </div>
+
+        </div>
+    </div>
+    
+
+
+</section>
+
+
+
+
+    
+
+
+
+
+
+
+
+
+

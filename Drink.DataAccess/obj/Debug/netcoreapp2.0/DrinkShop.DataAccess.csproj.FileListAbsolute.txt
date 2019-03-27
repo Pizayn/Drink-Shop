@@ -1,0 +1,14 @@
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\bin\Debug\netcoreapp2.0\DrinkShop.DataAccess.deps.json
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\bin\Debug\netcoreapp2.0\DrinkShop.DataAccess.dll
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\bin\Debug\netcoreapp2.0\DrinkShop.DataAccess.pdb
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\bin\Debug\netcoreapp2.0\DrinkShop.Entities.dll
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\bin\Debug\netcoreapp2.0\DrinkShop.Entities.pdb
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\bin\Debug\netcoreapp2.0\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\obj\Debug\netcoreapp2.0\DrinkShop.DataAccess.csprojAssemblyReference.cache
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\obj\Debug\netcoreapp2.0\DrinkShop.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\obj\Debug\netcoreapp2.0\DrinkShop.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\obj\Debug\netcoreapp2.0\DrinkShop.DataAccess.AssemblyInfo.cs
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\obj\Debug\netcoreapp2.0\DrinkShop.DataAccess.csproj.CopyComplete
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\obj\Debug\netcoreapp2.0\DrinkShop.DataAccess.dll
+C:\Users\Pizayn\source\repos\DrinkShopCore\Drink.DataAccess\obj\Debug\netcoreapp2.0\DrinkShop.DataAccess.pdb

@@ -1,0 +1,143 @@
+﻿@model DrinkShop.WebUI.Models.OrderDetailsListViewModel
+
+@{
+
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+
+
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb1">
+            <li><a asp-controller="Home"asp-action="Index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+            <li class="active">Checkout Page</li>
+        </ol>
+    </div>
+</div>
+@if (Model.OrderDetailsModels.Count == 0)
+{
+    <div class="container">
+        <div class="row">
+            <h2> My Orders</h2>
+            <hr />
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Total Price</th>
+                        <th></th>
+
+                    </tr>
+
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Orders)
+                    {
+                        <tr>
+                            <td>
+                                @item.Id
+                            </td>
+                            <td>@item.Total</td>
+                            <td>
+                                <a class="btn btn-success" asp-controller="Cart" asp-action="Details" asp-route-orderId="@item.Id">Details</a>
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+
+
+@if (Model.OrderDetailsModels.Count != 0)
+{
+    
+
+      
+        <!-- //breadcrumbs -->
+        <!-- checkout -->
+        <div class="checkout" >
+            <div class="container">
+               
+                <div class="checkout-right">
+                    <table class="timetable_sub">
+                        <thead>
+                        <tr>
+                           
+                            <th>Product</th>
+                            <th>Quality</th>
+                            <th>Product Name</th>
+
+                            <th>Total</th>
+                          
+                        </tr>
+                        </thead>
+                        @foreach (var  product in Model.OrderDetailsModels)
+                        {
+                            var orderId = product.Id;
+                            <tr class="rem1">
+                               
+                                <td class="invert-image" style="width: 30px;"><a asp-controller="Product"asp-action="Index"asp-route-productId="@product.ProductId"><img width="30px;" height="20px;" src="/Upload/@product.Image"  class="img-responsive" /></a></td>
+                                <td class="invert">
+                                    <div class="quantity">
+                                      
+                                           
+                                            <div class="entry value"><span>@product.Quantity</span></div>
+                                           
+                                     
+                                    </div>
+                                </td>
+                                <td class="invert">@product.ProductName</td>
+
+                                <td class="invert">$@product.Price</td>
+                                
+                            </tr>
+                        }
+                        
+                  
+                        <!--quantity-->
+                        <script>
+                            $('.value-plus').on('click', function () {
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
+                                divUpd.text(newVal);
+                            });
+
+                            $('.value-minus').on('click', function () {
+                                var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+                                if (newVal >= 1) divUpd.text(newVal);
+                            });
+                        </script>
+                        <!--quantity-->
+                    </table>
+                </div>
+                <div class="checkout-left">
+                    <div class="checkout-left-basket">
+                        <h4>Delivery Adress</h4>
+                        <ul>
+                            @foreach (var order in Model.Orders)
+                            {
+                                <li>Mahalle <i>-</i> <span>@order.Mahalle </span></li>
+                                <li>Semt <i>-</i> <span>@order.Semt </span></li>
+                                <li>Şehir <i>-</i> <span>@order.Sehir</span></li>
+                                <li>Total <i>-</i> <span>$@order.Total</span></li>                            }
+                                
+                                
+                            
+                            
+                        </ul>
+                    </div>
+                    <div class="checkout-right-basket">
+                        <a asp-controller="Product"asp-action="Index"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Continue Shopping</a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    
+
+}
